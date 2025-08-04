@@ -9,11 +9,15 @@ from groq import Groq
 def test_groq_api():
     """Test basic Groq API functionality"""
     
-    # Get API key
+    # Get API key from environment variable
+    # Set it with: export GROQ_API_KEY="your_api_key_here"
+    # Get a free API key from: https://console.groq.com
     api_key = os.environ.get("GROQ_API_KEY")
     
-    if not api_key or api_key == "YOUR_GROQ_API_KEY_HERE":
-        print("❌ Groq API key not set!")
+    if not api_key:
+        print("❌ GROQ_API_KEY environment variable not set!")
+        print("Please set your Groq API key: export GROQ_API_KEY='your_api_key_here'")
+        print("Get a free API key from: https://console.groq.com")
         return False
     
     try:

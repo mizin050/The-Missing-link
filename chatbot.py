@@ -40,11 +40,13 @@ app.add_middleware(
 )
 
 # Initialize Groq client and sentence transformer
-# Get API key from environment variable or replace the string below with your key
-# REPLACE THIS WITH YOUR ACTUAL GROQ API KEY:
+# IMPORTANT: Set your Groq API key as an environment variable
+# Get a free API key from: https://console.groq.com
+# Set it with: export GROQ_API_KEY="your_api_key_here"
 api_key = os.environ.get("GROQ_API_KEY")
-if api_key == "YOUR_GROQ_API_KEY_HERE":
-    print("⚠️  Please set your GROQ_API_KEY environment variable or update the API key in chatbot.py")
+if not api_key:
+    print("⚠️  GROQ_API_KEY environment variable not set!")
+    print("Please set your Groq API key: export GROQ_API_KEY='your_api_key_here'")
     print("Get a free API key from: https://console.groq.com")
 
 try:
